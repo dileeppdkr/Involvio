@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Involvio</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag '//code.jquery.com/jquery-1.11.1.min.js', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<div>
+      <div class="header_top"></div>
+
+      <div class="menu">
+          <header class="container">
+              <div class="navbar navbar-inner">
+                  <div class="container">
+                      <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                          <a id="closepage" menuid="0" class="brand" href="#" followlink="true">INVOLVIO</a>
+
+                      </div>
+                      <div class="collapse navbar-collapse pull-right" id="main-menu">
+                          <ul class="nav">
+                              <% if user_signed_in? %>
+                                <li class="fadeInDown animated d1 "><a href="#" class="active" id="home" menuid="0" followlink="true" >Home</a></li>
+
+                                <li class="fadeInDown animated d2"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+                              <% else %>
+                                <li class="fadeInDown animated d1"><%= link_to "Sign in", new_user_session_path%></li>
+                                <li class="fadeInDown animated d2"><%= link_to "Sign up", new_user_registration_path %></li>
+                              <% end %>
+                          </ul>
+
+                      </div>
+                              <!--/.nav-collapse -->
+                  </div>
+              </div>
+        
+          </header>
+
+      </div><!--menu-->
+
+<!-- 		<% if user_signed_in? %>
+		    Welcome <%=  current_user.email %>
+		    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+		<% else %>
+		    <%= link_to "Sign in", new_user_session_path%> or <%= link_to "Sign up", new_user_registration_path %>
+		<% end %> -->
+	</div>
+
+    <%= yield %>
+  </body>
+</html>

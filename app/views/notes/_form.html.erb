@@ -1,0 +1,43 @@
+<div class="col col-md-2"></div>
+
+<div class="container form-container">
+  <div class="row">
+  
+  <div class="col col-md-2"></div>
+    <div class="col col-md-8">
+      <%= form_with(model: note, local: true) do |form| %>
+        <% if note.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+            <ul>
+            <% note.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="form-group required">
+          <label for="exampleInputEmail1" class='control-label'>Job Title</label>
+          <%= form.text_field :title, id: :note_title, :placeholder => "Title",:class=>"form-control" %>
+          <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ex: Senior Mobile Developer"> -->
+          <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+        </div>
+        
+        <div class="form-group required">
+          <label for="exampleTextarea" class='control-label'>Body</label>
+          <%= form.text_field :body, id: :note_body, :placeholder => "Body",:class=>"form-control" %>
+          <!-- <textarea class="form-control" id="exampleTextarea" rows="7" name="note[:body]"></textarea> -->
+        </div>
+        <div class="form-group required">
+          <label for="exampleInputPassword1" class='control-label'>Tags</label>
+          <%= form.text_field :tags, id: :note_tags, :class => "form-control",:placeholder=>"Ex:Love" %>
+        </div>
+        <ul class="media-date text-uppercase reviews list-inline">
+          <li class="mm"><%= form.submit "Publish", :class => "btn btn-primary" %></li>
+        </ul>
+        
+      <% end %>
+    </div>
+  </div>
+</div>
