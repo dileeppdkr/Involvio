@@ -4,7 +4,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    @notes = Note.where(:user_id => current_user.id)
   end
 
   # GET /notes/1
@@ -17,9 +17,7 @@ class NotesController < ApplicationController
     @note = Note.new
   end
 
-  def dashboard
-    @notes = Note.where(:user_id => current_user.id)
-  end
+
 
   # GET /notes/1/edit
   def edit
