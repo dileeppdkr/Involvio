@@ -11,17 +11,16 @@
 * Configuration
 
 * Database creation
-	NA
+	1. NA
 * Database initialization
-	NA
+	1. NA
 * How to run the test suite
-	No test cases for now
+	1. No test cases for now
 * Services (job queues, cache servers, search engines, etc.)
-	NA
+	1. NA
 * Deployment instructions
-	-> git check out 
+	1. git check out 
 		git@github.com:dileeppdkr/Involvio.git
-	-> $ bundle install
-
-	-> Run the rails server => rails s
+	2. $ bundle install
+	3. Run the rails server => rails s
 * ...
